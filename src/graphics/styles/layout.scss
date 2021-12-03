@@ -1,0 +1,34 @@
+.layout {
+    display: flex;
+
+    &.vertical {
+        display: flex;
+        flex-direction: column;
+
+        &.c-horiz {
+            align-items: center;
+        }
+
+        &.c-vert {
+            justify-content: center;
+        }
+    }
+
+    &:not(.vertical), .horiz {
+        &.c-horiz {
+            justify-content: center;
+        }
+
+        &.c-vert {
+            align-items: center;
+        }
+    }
+}
+
+.w-max {
+    width: 1920px;
+}
+
+.p-abs {
+    position: absolute;
+}

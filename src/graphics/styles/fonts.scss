@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Khand:wght@400;500;700&display=swap');
+
+@import './constants.scss';
+
+body {
+    font-family: 'Khand', 'Noto Sans JP', sans-serif;
+    font-weight: 400;
+    font-size: 32px;
+}
+
+.bold {
+    font-weight: 500;
+}
+
+span.pronoun {
+    font-weight: 600;
+    background-color: white;
+    color: #222;
+    font-size: 20px;
+    padding: 0 5px;
+    border-radius: 5px;
+}

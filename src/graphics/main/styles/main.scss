@@ -1,0 +1,13 @@
+@import '../../styles/constants';
+@import '../../styles/layout';
+@import '../../styles/fonts';
+
+body {
+    background-color: #aaa;
+    margin: 0;
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+
+    color: white;
+}

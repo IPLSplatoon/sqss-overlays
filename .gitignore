@@ -1,0 +1,11 @@
+node_modules
+coverage
+bower_components
+
+/graphics
+/dashboard
+/extension
+
+/.idea
+
+result.json
