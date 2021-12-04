@@ -1,0 +1,101 @@
+@import '../../styles/constants';
+
+.main-scene-wrapper {
+    .logo-section {
+        width: 900px;
+        height: 100%;
+
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%);
+
+        .logo {
+            height: 100%;
+            width: 550px;
+
+            position: absolute;
+            left: 125px;
+
+            img {
+                width: 100%;
+            }
+        }
+
+        .background {
+            width: 1732px;
+            height: 1732px;
+
+            $background-stripe-width: 75px;
+            background: repeating-linear-gradient(
+                    60deg,
+                    $accent-light-alpha,
+                    $accent-light-alpha $background-stripe-width,
+                    $accent-medium-alpha $background-stripe-width,
+                    $accent-medium-alpha $background-stripe-width * 2
+            );
+        }
+    }
+
+    .info-section {
+        position: absolute;
+        right: 0;
+
+        .data-container {
+            width: 875px;
+            position: relative;
+
+            img {
+                width: 100%;
+            }
+
+            .content {
+                position: absolute;
+                bottom: 22%;
+                left: 2%;
+                width: 96%;
+                height: 42%;
+
+                .row {
+                    height: 50px;
+
+                    > .icon {
+                        width: 50px;
+                        font-size: 48px;
+                        margin-right: 15px;
+                    }
+
+                    > fitted-text, > span {
+                        font-size: 48px;
+                    }
+                }
+
+                .flavor-text {
+                    font-size: 75px;
+                    font-weight: 700;
+                    height: 80px;
+                    margin-top: -25px;
+                    margin-bottom: 25px;
+                }
+            }
+
+            &.data-container-main {
+                right: 75px;
+                top: 75px;
+                transform: rotate(-3deg);
+            }
+
+            &.data-container-support {
+                right: 95px;
+                bottom: 10px;
+                transform: rotate(1deg);
+
+                .support-container {
+                    position: absolute;
+                    margin-top: 35px;
+                }
+            }
+        }
+    }
+}
