@@ -1,6 +1,8 @@
 @import '../../styles/layout';
 @import '../../styles/fonts';
 
+@import './main-scene.scss';
+
 body {
     margin: 0;
     width: 1920px;
@@ -21,4 +23,10 @@ body {
     width: 100%;
     height: 100%;
     position: absolute;
+}
+
+body > .background {
+    z-index: -1;
+    background-image: url('/assets/SqSS_BrandBackground-2.png');
+    background-size: cover;
 }
