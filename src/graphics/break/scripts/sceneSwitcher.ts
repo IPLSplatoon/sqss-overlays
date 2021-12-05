@@ -1,7 +1,7 @@
 import gsap from 'gsap';
 import { activeBreakScene } from '../../helpers/replicants';
 
-const sceneSwitchTl = gsap.timeline();
+export const sceneSwitchTl = gsap.timeline();
 
 activeBreakScene.on('change', (newValue, oldValue) => {
     sceneSwitchTl.addLabel('sceneHide');
@@ -11,6 +11,9 @@ activeBreakScene.on('change', (newValue, oldValue) => {
             break;
         case 'teams':
             sceneSwitchTl.add(hideTeams());
+            break;
+        case 'stages':
+            sceneSwitchTl.add(hideStages());
     }
 
     sceneSwitchTl.addLabel('sceneShow');
@@ -20,13 +23,16 @@ activeBreakScene.on('change', (newValue, oldValue) => {
             break;
         case 'teams':
             sceneSwitchTl.add(showTeams());
+            break;
+        case 'stages':
+            sceneSwitchTl.add(showStages());
     }
 });
 
 function hideMainScene(): gsap.core.Timeline {
     const tl = gsap.timeline({
         onComplete: () => {
-            gsap.set('.main-scene-wrapper', { display: 'none' });
+            gsap.set('.main-scene-wrapper', { visibility: 'hidden' });
         }
     });
 
@@ -41,7 +47,7 @@ function hideMainScene(): gsap.core.Timeline {
 function showMainScene(): gsap.core.Timeline {
     const tl = gsap.timeline({
         onStart: () => {
-            gsap.set('.main-scene-wrapper', { display: 'unset' });
+            gsap.set('.main-scene-wrapper', { visibility: 'visible' });
         }
     });
 
@@ -57,7 +63,7 @@ function showMainScene(): gsap.core.Timeline {
 function hideTeams(): gsap.core.Timeline {
     const tl = gsap.timeline({
         onComplete: () => {
-            gsap.set('.teams-wrapper', { display: 'none' });
+            gsap.set('.teams-wrapper', { visibility: 'hidden' });
         }
     });
 
@@ -71,7 +77,7 @@ function hideTeams(): gsap.core.Timeline {
 function showTeams(): gsap.core.Timeline {
     const tl = gsap.timeline({
         onStart: () => {
-            gsap.set('.teams-wrapper', { display: 'flex' });
+            gsap.set('.teams-wrapper', { visibility: 'visible' });
         }
     });
 
@@ -79,6 +85,54 @@ function showTeams(): gsap.core.Timeline {
         '.teams-wrapper .team',
         { y: -25 },
         { duration: 0.35, y: 0, ease: 'power4.out', stagger: 0.1, opacity: 1, delay: 0.35 }, 'sceneShow');
+
+    return tl;
+}
+
+export function hideStageElems(callback?: gsap.Callback): gsap.core.Timeline {
+    const tl = gsap.timeline({ onComplete: callback });
+
+    tl.to('.stages-wrapper .stage', { duration: 0.35, ease: 'power4.in', stagger: 0.05, opacity: 0, y: 35 });
+
+    return tl;
+}
+
+export function showStageElems(): gsap.core.Timeline {
+    const tl = gsap.timeline();
+
+    tl.fromTo(
+        '.stages-wrapper .stage',
+        { y: -35 },
+        { duration: 0.35, ease: 'power4.out', stagger: 0.05, opacity: 1, y: 0 });
+
+    return tl;
+}
+
+function hideStages(): gsap.core.Timeline {
+    const tl = gsap.timeline({
+        onComplete: () => {
+            gsap.set('.stages-wrapper', { visibility: 'hidden' });
+        }
+    });
+
+    tl
+        .add(hideStageElems(), 'sceneHide')
+        .to('.stages-wrapper .scoreboard', { duration: 0.35, opacity: 0 }, 'sceneHide');
+
+    return tl;
+}
+
+function showStages(): gsap.core.Timeline {
+    const tl = gsap.timeline({
+        onStart: () => {
+            gsap.set('.stages-wrapper', { visibility: 'visible' });
+            gsap.set('.stages-wrapper .stage', { opacity: 0 });
+        }
+    });
+
+    tl
+        .add(showStageElems(), 'sceneShow')
+        .to('.stages-wrapper .scoreboard', { duration: 0.35, opacity: 1 }, 'sceneShow');
 
     return tl;
 }

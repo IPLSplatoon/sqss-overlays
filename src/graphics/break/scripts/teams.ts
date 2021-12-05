@@ -10,11 +10,11 @@ const teamBUpdateTl = gsap.timeline();
 
 activeRound.on('change', (newValue, oldValue) => {
     doOnDifference(newValue, oldValue, 'teamA.name', (name: string) => {
-        textOpacitySwap(name, elementById('scene-teams__team-a-name'));
+        textOpacitySwap(addDots(name), elementById('scene-teams__team-a-name'));
     });
 
     doOnDifference(newValue, oldValue, 'teamB.name', (name: string) => {
-        textOpacitySwap(name, elementById('scene-teams__team-b-name'));
+        textOpacitySwap(addDots(name), elementById('scene-teams__team-b-name'));
     });
 
     function createPlayerNameUpdate(team: 'a' | 'b'): gsap.core.Timeline {

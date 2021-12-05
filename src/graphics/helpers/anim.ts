@@ -2,14 +2,18 @@ import { gsap } from 'gsap';
 
 export function textOpacitySwap(
     newText: string,
-    elem: FittedText,
+    elem: HTMLElement,
     extraElems: HTMLElement[] = [],
     callback?: gsap.Callback
 ): gsap.core.Tween[] {
     return [
         gsap.to([elem, ...extraElems], {
             opacity: 0, duration: 0.35, onComplete: () => {
-                elem.text = newText;
+                if (elem.tagName === 'FITTED-TEXT') {
+                    (elem as FittedText).text = newText;
+                } else {
+                    elem.innerText = newText;
+                }
             }
         }),
         gsap.to([elem, ...extraElems], { opacity: 1, duration: 0.35, delay: 0.35, onComplete: callback })
