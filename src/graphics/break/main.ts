@@ -6,6 +6,7 @@ import './scripts/mainScene';
 import './scripts/music';
 import './scripts/nextRoundTimer';
 import './scripts/sceneSwitcher';
+import './scripts/teams';
 
 import { dom, library } from '@fortawesome/fontawesome-svg-core';
 import { faClock } from '@fortawesome/free-regular-svg-icons/faClock';

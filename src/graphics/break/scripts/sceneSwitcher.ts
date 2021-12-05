@@ -8,12 +8,18 @@ activeBreakScene.on('change', (newValue, oldValue) => {
     switch (oldValue) {
         case 'main':
             sceneSwitchTl.add(hideMainScene());
+            break;
+        case 'teams':
+            sceneSwitchTl.add(hideTeams());
     }
 
     sceneSwitchTl.addLabel('sceneShow');
     switch (newValue) {
         case 'main':
             sceneSwitchTl.add(showMainScene());
+            break;
+        case 'teams':
+            sceneSwitchTl.add(showTeams());
     }
 });
 
@@ -44,6 +50,35 @@ function showMainScene(): gsap.core.Timeline {
         { y: -25 },
         { duration: 0.35, y: 0, ease: 'power4.out', stagger: 0.1, opacity: 1, delay: 0.35 }, 'sceneShow');
     tl.to('.main-scene-wrapper > .logo-section', { duration: 1, x: 0, ease: 'power2.out' }, 'sceneShow');
+
+    return tl;
+}
+
+function hideTeams(): gsap.core.Timeline {
+    const tl = gsap.timeline({
+        onComplete: () => {
+            gsap.set('.teams-wrapper', { display: 'none' });
+        }
+    });
+
+    tl.to(
+        '.teams-wrapper .team',
+        { duration: 0.35, y: 25, ease: 'power4.in', stagger: 0.1, opacity: 0 }, 'sceneHide');
+
+    return tl;
+}
+
+function showTeams(): gsap.core.Timeline {
+    const tl = gsap.timeline({
+        onStart: () => {
+            gsap.set('.teams-wrapper', { display: 'flex' });
+        }
+    });
+
+    tl.fromTo(
+        '.teams-wrapper .team',
+        { y: -25 },
+        { duration: 0.35, y: 0, ease: 'power4.out', stagger: 0.1, opacity: 1, delay: 0.35 }, 'sceneShow');
 
     return tl;
 }

@@ -1,0 +1,62 @@
+.teams-wrapper {
+    .teams {
+        width: 1300px;
+        height: 600px;
+
+        justify-content: space-between;
+
+        .team {
+            height: 100%;
+
+            transform-origin: center 25px;
+
+            opacity: 0;
+            filter:
+                drop-shadow(3px 3px 5px rgba(0, 0, 0, 0.6))
+                drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.3));
+
+            img {
+                height: 100%;
+            }
+
+            .team-data {
+                position: absolute;
+                width: calc(100% - 60px);
+                height: calc(100% - 100px);
+                margin: 95px 30px 30px;
+                overflow: hidden;
+
+                .team-name {
+                    font-weight: 700;
+                    font-size: 70px;
+                    line-height: 85px;
+                    height: 85px;
+                }
+
+                .separator {
+                    height: 5px;
+                    width: 100%;
+                    background-color: #FFF;
+                }
+
+                .team-players {
+                    margin-top: 10px;
+                }
+
+                .team-player {
+                    font-size: 50px;
+                    line-height: 65px;
+                    height: 65px;
+                }
+            }
+
+            &.team-a {
+                transform: rotate(0.5deg);
+            }
+
+            &.team-b {
+                transform: rotate(-1deg);
+            }
+        }
+    }
+}
