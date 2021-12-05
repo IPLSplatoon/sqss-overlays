@@ -27,8 +27,6 @@ function setSupportTextLoop() {
         const elemFrom = supportTextElems[i];
         const elemTo = supportTextElems[i + 1];
 
-        console.log(elemFrom, elemTo);
-
         supportTextTl
             .to({}, { duration: switchDelay })
             .to(elemFrom, { duration: 0.35, opacity: 0 }, `change_${i}`)
