@@ -18,7 +18,11 @@ activeBreakScene.on('change', (newValue, oldValue) => {
 });
 
 function hideMainScene(): gsap.core.Timeline {
-    const tl = gsap.timeline();
+    const tl = gsap.timeline({
+        onComplete: () => {
+            gsap.set('.main-scene-wrapper', { display: 'none' });
+        }
+    });
 
     tl.to(
         '.main-scene-wrapper .data-container',
@@ -29,7 +33,11 @@ function hideMainScene(): gsap.core.Timeline {
 }
 
 function showMainScene(): gsap.core.Timeline {
-    const tl = gsap.timeline();
+    const tl = gsap.timeline({
+        onStart: () => {
+            gsap.set('.main-scene-wrapper', { display: 'unset' });
+        }
+    });
 
     tl.fromTo(
         '.main-scene-wrapper .data-container',
