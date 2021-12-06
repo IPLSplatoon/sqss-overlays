@@ -1,0 +1,57 @@
+.scoreboard-wrapper {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+
+    > img {
+        width: 310px;
+        filter: drop-shadow(3px 3px 5px rgba(34, 34, 34, 0.75));
+        z-index: -1;
+    }
+
+    .content {
+        position: absolute;
+        width: calc(100% - 24px);
+        margin: 35px 12px 0;
+        z-index: 2;
+
+        .team {
+            display: grid;
+            grid-template-columns: 1fr 45px 30px;
+            height: 50px;
+            align-items: center;
+
+            .team-score {
+                text-align: center;
+                font-size: 45px;
+                line-height: 40px;
+                font-weight: 700;
+                font-family: 'Montserrat', sans-serif;
+            }
+
+            .team-name {
+                font-size: 35px;
+                transform: translate(0, 3px);
+            }
+
+            .color {
+                width: 25px;
+                height: 40px;
+                border-radius: 5px;
+                border: 1px solid white;
+            }
+        }
+
+        .separator {
+            height: 2px;
+            width: 100%;
+            background-color: #fff;
+            margin: 3px 0;
+        }
+
+        .flavor-text {
+            font-size: 30px;
+            line-height: 30px;
+        }
+    }
+}

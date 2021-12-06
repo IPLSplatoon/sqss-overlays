@@ -1,0 +1,51 @@
+.casters-wrapper {
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+    transform: translate(0, 350px);
+
+    > .casters-background {
+        width: 310px;
+        height: 250px;
+        filter: drop-shadow(3px 3px 5px rgba(34, 34, 34, 0.75));
+        z-index: -1;
+        background-color: rgb(49, 49, 49);
+        border: 7px solid rgb(7, 146, 70);
+        border-radius: 25px;
+    }
+
+    > .content {
+        position: absolute;
+        width: calc(100% - 24px);
+        height: 94%;
+        margin: 10px 12px 0;
+        z-index: 2;
+        font-size: 30px;
+        line-height: 30px;
+
+        .title {
+            text-align: center;
+            width: 100%;
+            border-bottom: 2px solid white;
+            padding: 5px 0;
+        }
+
+        #casters {
+            flex-grow: 1;
+
+            .caster {
+                margin: 8px 0;
+
+                .caster-name {
+                    font-weight: 500;
+                    font-size: 40px;
+                }
+
+                .caster-twitter {
+                    font-size: 32px;
+                    font-weight: 300;
+                }
+            }
+        }
+    }
+}

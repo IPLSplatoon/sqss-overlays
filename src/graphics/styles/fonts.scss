@@ -19,6 +19,8 @@ span.pronoun {
     background-color: white;
     color: #222;
     font-size: 20px;
-    padding: 0 5px;
+    padding: 3px 8px 0;
     border-radius: 5px;
+    transform: translate(0px, -5px);
+    display: inline-block;
 }

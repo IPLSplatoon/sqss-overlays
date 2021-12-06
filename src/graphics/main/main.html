@@ -5,6 +5,31 @@
     <title>main@sqss-overlays</title>
 </head>
 <body>
-
+    <div class="scoreboard-wrapper">
+        <div class="content">
+            <div class="team team-a">
+                <fitted-text class="team-name" text="Team A" id="team-a-name" max-width="211"></fitted-text>
+                <div class="team-score" id="team-a-score">1</div>
+                <div class="color" style="background-color: #fff" id="team-a-color"></div>
+            </div>
+            <div class="team team-b">
+                <fitted-text class="team-name" text="Team B" id="team-b-name" max-width="211"></fitted-text>
+                <div class="team-score" id="team-b-score">0</div>
+                <div class="color" style="background-color: #000" id="team-b-color"></div>
+            </div>
+            <div class="separator"></div>
+            <fitted-text text="Flavor text" align="center" class="flavor-text" id="flavor-text" max-width="286"></fitted-text>
+        </div>
+        <img src="assets/sqss-scoreboardBg.png">
+    </div>
+    <div class="casters-wrapper">
+        <div class="content layout vertical">
+            <div class="title">Commentators</div>
+            <div id="casters" class="layout vertical c-vert">
+                
+            </div>
+        </div>
+        <div class="casters-background"></div>
+    </div>
 </body>
 </html>
