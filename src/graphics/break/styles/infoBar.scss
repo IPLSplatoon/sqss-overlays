@@ -8,12 +8,14 @@
     left: 0;
     z-index: 10;
 
-    background: linear-gradient(0deg, $accent-light 0%, $accent-light 60%, #436904 100%);
+    background: linear-gradient(0deg, #8AE108 0%, $accent-light 50%, #538307 100%);
 
     font-size: 50px;
     color: $dark-text-color;
     font-weight: 500;
     transform: translate(0, 150px);
+
+    filter: drop-shadow(0 -2px 5px rgba(34, 34, 34, 0.5));
 
     .info-bar-casters {
         height: 100%;
