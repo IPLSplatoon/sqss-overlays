@@ -1,0 +1,33 @@
+@import '../../styles/constants';
+
+.info-bar-wrapper {
+    position: absolute;
+    width: 1920px;
+    height: 150px;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+
+    background: linear-gradient(0deg, $accent-light 0%, $accent-light 60%, #436904 100%);
+
+    font-size: 50px;
+    color: $dark-text-color;
+    font-weight: 500;
+    transform: translate(0, 150px);
+
+    .info-bar-casters {
+        height: 100%;
+        width: 100%;
+        position: relative;
+
+        .info-bar-caster-row {
+            position: absolute !important;
+            height: 50px;
+            font-size: 50px;
+
+            .icon {
+                margin: 0 10px;
+            }
+        }
+    }
+}

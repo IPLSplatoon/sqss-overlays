@@ -5,7 +5,7 @@
     <title>break@sqss-overlays</title>
 </head>
 <body>
-<div class="content-wrapper">
+<div class="content-wrapper scene-content-wrapper">
     <div class="scene-wrapper main-scene-wrapper">
         <div class="logo-section">
             <div class="logo layout c-vert">
@@ -104,6 +104,18 @@
             </div>
         </div>
         <div class="stages layout c-horiz" id="stage-container"></div>
+    </div>
+</div>
+<div class="info-bar-wrapper layout c-vert c-horiz">
+    <div class="info-bar-casters layout c-vert c-horiz">
+        <div class="info-bar-casters__name-display info-bar-caster-row layout c-vert">
+            <i class="fas fa-microphone-alt icon"></i>
+            <fitted-text id="info-bar-caster-names" use-inner-html max-width="1600" align="center"></fitted-text>
+        </div>
+        <div class="info-bar-casters__twitter-display info-bar-caster-row layout c-vert">
+            <i class="fab fa-twitter icon"></i>
+            <fitted-text id="info-bar-caster-twitters" use-inner-html max-width="1600" align="center"></fitted-text>
+        </div>
     </div>
 </div>
 <div class="background content-wrapper"></div>
