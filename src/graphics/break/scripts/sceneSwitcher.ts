@@ -53,26 +53,11 @@ function setBgPosition(position: number, duration: number): gsap.core.Timeline {
 }
 
 function hideMainScene(): gsap.core.Timeline {
-    const tl = gsap.timeline();
-
-    // tl.to(
-    //     '.main-scene-wrapper .data-container',
-    //     { duration: 0.35, y: 25, ease: 'power4.in', stagger: 0.1, opacity: 0 }, 'sceneHide');
-    // tl.to('.main-scene-wrapper > .logo-section', { duration: 1, x: -900, ease: 'power2.in', delay: 0.2 }, 'sceneHide');
-
-    return tl;
+    return gsap.timeline();
 }
 
 function showMainScene(): gsap.core.Timeline {
-    const tl = gsap.timeline();
-
-    // tl.fromTo(
-    //     '.main-scene-wrapper .data-container',
-    //     { y: -25 },
-    //     { duration: 0.35, y: 0, ease: 'power4.out', stagger: 0.1, opacity: 1, delay: 0.35 }, 'sceneShow');
-    // tl.to('.main-scene-wrapper > .logo-section', { duration: 1, x: 0, ease: 'power2.out' }, 'sceneShow');
-
-    return tl;
+    return gsap.timeline();
 }
 
 function hideTeams(newValue: Scene): gsap.core.Timeline {
@@ -112,40 +97,17 @@ function showTeams(oldValue: Scene): gsap.core.Timeline {
 }
 
 export function hideStageElems(callback?: gsap.Callback): gsap.core.Timeline {
-    const tl = gsap.timeline({ onComplete: callback });
-
-    // tl.to('.stages-wrapper .stage', { duration: 0.35, ease: 'power4.in', stagger: 0.05, opacity: 0, y: 35 });
-
-    return tl;
+    return gsap.timeline({ onComplete: callback });
 }
 
 export function showStageElems(): gsap.core.Timeline {
-    const tl = gsap.timeline();
-
-    // tl.fromTo(
-    //     '.stages-wrapper .stage',
-    //     { y: -35 },
-    //     { duration: 0.35, ease: 'power4.out', stagger: 0.05, opacity: 1, y: 0 });
-
-    return tl;
+    return gsap.timeline();
 }
 
 function hideStages(): gsap.core.Timeline {
-    const tl = gsap.timeline();
-
-    // tl
-    //     .add(hideStageElems(), 'sceneHide')
-    //     .to('.stages-wrapper .scoreboard', { duration: 0.35, opacity: 0 }, 'sceneHide');
-
-    return tl;
+    return gsap.timeline();
 }
 
 function showStages(): gsap.core.Timeline {
-    const tl = gsap.timeline();
-
-    // tl
-    //     .add(showStageElems(), 'sceneShow')
-    //     .to('.stages-wrapper .scoreboard', { duration: 0.35, opacity: 1 }, 'sceneShow');
-
-    return tl;
+    return gsap.timeline();
 }
