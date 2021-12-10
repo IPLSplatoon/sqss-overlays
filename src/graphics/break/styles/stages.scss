@@ -10,7 +10,6 @@
         overflow: hidden;
         filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.5));
         background-color: #222;
-        opacity: 0;
 
         .scores {
             display: grid;
@@ -52,8 +51,6 @@
         }
 
         .stage {
-            opacity: 0;
-
             height: 100%;
             position: relative;
             margin: 0 15px;
