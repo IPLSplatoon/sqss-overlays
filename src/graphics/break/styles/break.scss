@@ -1,7 +1,7 @@
 @import '../../styles/layout';
 @import '../../styles/fonts';
 
-@import './main-scene.scss';
+@import 'mainScene';
 @import './teams.scss';
 @import './stages.scss';
 @import './infoBar.scss';
@@ -15,6 +15,17 @@ body {
     color: white;
 }
 
+.scene-content-wrapper {
+    width: 1920px * 3;
+    height: 1080px;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    position: absolute;
+    top: 0; left: 0;
+}
+
 .content-wrapper {
     width: 1920px;
     height: 1080px;
@@ -25,11 +36,12 @@ body {
 .scene-wrapper {
     width: 100%;
     height: 100%;
-    position: absolute;
+    position: relative;
 }
 
 body > .background {
     z-index: -1;
-    background-image: url('/assets/SqSS_BrandBackground-2.png');
-    background-size: cover;
+    background-image: url('/assets/SqSS_BrandBackground_tileHoriz.png');
+    background-size: auto 1080px;
+    background-color: rgb(66, 66, 66);
 }
