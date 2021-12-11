@@ -131,11 +131,19 @@ function showTeams(oldValue: Scene): gsap.core.Timeline {
 }
 
 export function hideStageElems(callback?: gsap.Callback): gsap.core.Timeline {
-    return gsap.timeline({ onComplete: callback });
+    const tl = gsap.timeline({ onComplete: callback });
+
+    tl.to('.stages', { duration: 0.35, opacity: 0 });
+
+    return tl;
 }
 
 export function showStageElems(): gsap.core.Timeline {
-    return gsap.timeline();
+    const tl = gsap.timeline();
+
+    tl.to('.stages', { duration: 0.35, opacity: 1 });
+
+    return tl;
 }
 
 function hideStages(): gsap.core.Timeline {
