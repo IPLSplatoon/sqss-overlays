@@ -49,6 +49,7 @@
         "fitted-text": "^2.0.0",
         "gsap": "npm:@gsap/shockingly@^3.8.0",
         "lodash": "^4.17.21",
+        "lottie-web": "^5.8.1",
         "luxon": "^2.0.1",
         "pixi-filters": "^4.1.4",
         "three": "^0.132.2"

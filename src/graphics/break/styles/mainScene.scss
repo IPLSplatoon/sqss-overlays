@@ -18,8 +18,11 @@
             position: absolute;
             left: 125px;
 
-            img {
-                width: 100%;
+            .logo-container {
+                width: 550px;
+                height: 100%;
+
+                transform: scale(2.2);
             }
         }
 
