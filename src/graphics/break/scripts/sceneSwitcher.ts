@@ -46,8 +46,8 @@ function setBgPosition(position: number, duration: number): gsap.core.Timeline {
     const tl = gsap.timeline();
 
     const ease = 'power2.inOut';
-    tl.to('#content-background', { backgroundPositionX: `${position}px`, duration, ease }, 'sceneShow');
-    tl.to('.scene-content-wrapper', { x: position, duration, ease }, 'sceneShow');
+    tl.to('#content-background', { backgroundPositionX: `${position * 1.05}px`, duration, ease }, 'sceneShow');
+    tl.to('.scene-content-wrapper', { x: position, duration, ease, delay: 0.05 }, 'sceneShow');
 
     return tl;
 }
