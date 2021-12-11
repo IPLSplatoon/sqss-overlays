@@ -1,9 +1,21 @@
 import gsap from 'gsap';
 import { activeBreakScene } from '../../helpers/replicants';
+import lottie from 'lottie-web';
+import { elementById } from '../../helpers/elem';
 
 export const sceneSwitchTl = gsap.timeline();
 
 type Scene = 'main' | 'teams' | 'stages';
+
+const mainLogoContainer = elementById<HTMLCanvasElement>('main-logo-container');
+
+const logoAnimation = lottie.loadAnimation({
+    container: mainLogoContainer,
+    loop: false,
+    autoplay: true,
+    renderer: 'svg',
+    path: 'assets/sqss-logoAnim.json'
+});
 
 activeBreakScene.on('change', (newValue, oldValue) => {
     if (!oldValue) oldValue = 'main';
@@ -66,7 +78,13 @@ function hideMainScene(): gsap.core.Timeline {
 
 function showMainScene(oldValue: Scene): gsap.core.Timeline {
     const tl = gsap.timeline({
-        delay: oldValue === 'stages' ? 0.3 : 0
+        delay: oldValue === 'stages' ? 0.3 : 0,
+        onStart: () => {
+            logoAnimation.goToAndStop(oldValue === 'stages' ? 1.2 : 1, true);
+            gsap.delayedCall(1, () => {
+                logoAnimation.play();
+            });
+        }
     });
 
     if (oldValue === 'stages') {
