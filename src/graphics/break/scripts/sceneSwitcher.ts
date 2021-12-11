@@ -28,11 +28,11 @@ activeBreakScene.on('change', (newValue, oldValue) => {
         = (newValue === 'main' && oldValue === 'stages') || (newValue === 'stages' && oldValue === 'main')
             ? baseBgMoveDuration * 1.5 : baseBgMoveDuration;
 
-    sceneSwitchTl.addLabel('sceneShow', oldValue === 'teams' ? 'sceneHide' : undefined);
+    sceneSwitchTl.addLabel('sceneShow', ['teams', 'main'].includes(oldValue) ? 'sceneHide' : undefined);
     sceneSwitchTl.add(setBgPosition(bgPosition, bgMoveDuration), 'sceneShow');
     switch (newValue) {
         case 'main':
-            sceneSwitchTl.add(showMainScene());
+            sceneSwitchTl.add(showMainScene(), 'sceneShow');
             break;
         case 'teams':
             sceneSwitchTl.add(showTeams(oldValue), 'sceneShow');
@@ -53,11 +53,31 @@ function setBgPosition(position: number, duration: number): gsap.core.Timeline {
 }
 
 function hideMainScene(): gsap.core.Timeline {
-    return gsap.timeline();
+    const tl = gsap.timeline();
+
+    tl.to(
+        '.main-scene-wrapper .data-container',
+        { duration: 0.7, rotate: '-=12', ease: 'power1.in', delay: 0.3 }, 'sceneHide');
+
+    return tl;
 }
 
 function showMainScene(): gsap.core.Timeline {
-    return gsap.timeline();
+    const tl = gsap.timeline();
+
+    tl
+        .fromTo(
+            '.main-scene-wrapper .data-container',
+            { rotate: -2, immediateRender: false },
+            { duration: 1, rotate: 12 })
+        .to(
+            '.main-scene-wrapper .data-container-support',
+            { duration: 4, rotate: gsap.utils.random(-2, 2, 0.1), ease: 'elastic.out(1, 0.3)' }, 'data-container-wiggle')
+        .to(
+            '.main-scene-wrapper .data-container-main',
+            { duration: 4, rotate: gsap.utils.random(-2, 2, 0.1), ease: 'elastic.out(1, 0.3)' }, 'data-container-wiggle');
+
+    return tl;
 }
 
 function hideTeams(newValue: Scene): gsap.core.Timeline {
@@ -82,16 +102,19 @@ function showTeams(oldValue: Scene): gsap.core.Timeline {
     const rotateStart = oldValue === 'main' ? -2 : 2;
     const rotateTo = oldValue === 'main' ? -12 : 12;
 
-    tl.fromTo(
-        '.teams-wrapper .team',
-        { rotate: rotateStart, immediateRender: false },
-        { duration: 1, rotate: rotateTo, ease: 'power3.in', stagger: 0.1 });
-    tl.to(
-        '.teams-wrapper .team-a',
-        { duration: 4, rotate: gsap.utils.random(-2, 2, 0.1), ease: 'elastic.out(1, 0.3)' }, 'team-wrapper-bounce');
-    tl.to(
-        '.teams-wrapper .team-b',
-        { duration: 4, rotate: gsap.utils.random(-2, 2, 0.1), ease: 'elastic.out(1, 0.3)', delay: 0.1 }, 'team-wrapper-bounce');
+    tl
+        .fromTo(
+            '.teams-wrapper .team',
+            { rotate: rotateStart, immediateRender: false },
+            { duration: 1, rotate: rotateTo, ease: 'power3.in', stagger: 0.1 })
+        .to(
+            '.teams-wrapper .team-a',
+            { duration: 4, rotate: gsap.utils.random(-2, 2, 0.1), ease: 'elastic.out(1, 0.3)' },
+            'team-wrapper-bounce')
+        .to(
+            '.teams-wrapper .team-b',
+            { duration: 4, rotate: gsap.utils.random(-2, 2, 0.1), ease: 'elastic.out(1, 0.3)', delay: 0.1 },
+            'team-wrapper-bounce');
 
     return tl;
 }

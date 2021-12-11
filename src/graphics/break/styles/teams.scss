@@ -10,6 +10,8 @@
 
             transform-origin: center 25px;
 
+            will-change: transform;
+
             filter:
                 drop-shadow(3px 3px 5px rgba(0, 0, 0, 0.6))
                 drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.3));
