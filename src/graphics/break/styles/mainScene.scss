@@ -45,6 +45,8 @@
         .data-container {
             width: 875px;
             position: relative;
+            transform-origin: center 130px;
+            will-change: transform;
 
             img {
                 width: 100%;

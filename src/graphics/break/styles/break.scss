@@ -24,6 +24,8 @@ body {
 
     position: absolute;
     top: 0; left: 0;
+
+    will-change: transform;
 }
 
 .content-wrapper {
@@ -44,4 +46,6 @@ body > .background {
     background-image: url('/assets/SqSS_BrandBackground_tileHoriz.png');
     background-size: auto 1080px;
     background-color: rgb(66, 66, 66);
+
+    will-change: background-position-x;
 }
