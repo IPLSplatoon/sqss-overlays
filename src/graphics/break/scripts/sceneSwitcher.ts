@@ -32,7 +32,7 @@ activeBreakScene.on('change', (newValue, oldValue) => {
     sceneSwitchTl.add(setBgPosition(bgPosition, bgMoveDuration), 'sceneShow');
     switch (newValue) {
         case 'main':
-            sceneSwitchTl.add(showMainScene(), 'sceneShow');
+            sceneSwitchTl.add(showMainScene(oldValue), 'sceneShow');
             break;
         case 'teams':
             sceneSwitchTl.add(showTeams(oldValue), 'sceneShow');
@@ -62,14 +62,16 @@ function hideMainScene(): gsap.core.Timeline {
     return tl;
 }
 
-function showMainScene(): gsap.core.Timeline {
-    const tl = gsap.timeline();
+function showMainScene(oldValue: Scene): gsap.core.Timeline {
+    const tl = gsap.timeline({
+        delay: oldValue === 'stages' ? 0.5 : 0.1
+    });
 
     tl
         .fromTo(
             '.main-scene-wrapper .data-container',
             { rotate: -2, immediateRender: false },
-            { duration: 1, rotate: 12 })
+            { duration: oldValue === 'stages' ? 1.2 : 1, rotate: 12 })
         .to(
             '.main-scene-wrapper .data-container-support',
             { duration: 4, rotate: gsap.utils.random(-2, 2, 0.1), ease: 'elastic.out(1, 0.3)' }, 'data-container-wiggle')
