@@ -1,6 +1,6 @@
-# sqss-overlays
+# sac-overlays
 
-Broadcast overlays for the Squidboards Splat Series, a Splatoon tournament from Squidboards and Inkling Performance Labs.
+Broadcast overlays for the Splatoon Advanced Circuit, a Splatoon tournament from Inkling Performance Labs.
 
 ## Setup
 
@@ -8,7 +8,7 @@ Broadcast overlays for the Squidboards Splat Series, a Splatoon tournament from 
 
 ### Pre-built version (For production use)
 
-- Clone the `build` branch of this repository to `[nodecg]/bundles/sqss-overlays`
+- Clone the `build` branch of this repository to `[nodecg]/bundles/sac-overlays`
 - All done!
 
 ### Build manually
