@@ -16,7 +16,7 @@ activeRound.on('change', (newValue, oldValue) => {
     elementById('scene-stages__team-b-score').innerText = newValue.teamB.score.toString();
 
     let isNewRound = false;
-    doOnDifference(newValue, oldValue, 'round.id', async () => {
+    doOnDifference(newValue, oldValue, 'match.id', async () => {
         isNewRound = true;
         await Promise.all(newValue.games.map(game => loadImage(getStageUrl(game.stage))));
         if (activeBreakScene.value === 'stages') {
