@@ -1,7 +1,7 @@
 {
     "name": "sqss-overlays",
-    "version": "0.0.0",
-    "compatibleDashboardVersion": "^3.1.0",
+    "version": "1.1.0",
+    "compatibleDashboardVersion": "^4.0.0",
     "description": "Broadcast overlays for the Squidboards Splat Series, a Splatoon tournament from Squidboards and Inkling Performance Labs.",
     "author": {
         "name": "inkfarer",
@@ -9,6 +9,7 @@
         "url": "https://inkfarer.com"
     },
     "contributors": [
+        "BrushStrokes (https://brush.rip/)",
         "Vincent Lee <vlee@vlee.me.uk>"
     ],
     "files": [
